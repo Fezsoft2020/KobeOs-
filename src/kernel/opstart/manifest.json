@@ -1,0 +1,17 @@
+{
+    "$schema": "https://schemas.cute.engineering/stable/cutekit.manifest.component.v1",
+    "id": "opstart",
+    "description": "A simple and configurable bootloader",
+    "type": "exe",
+    "enableIf": {
+        "sys": [
+            "efi"
+        ]
+    },
+    "requires": [
+        "karm-kira",
+        "karm-sys",
+        "opstart-impl",
+        "karm-json"
+    ]
+}

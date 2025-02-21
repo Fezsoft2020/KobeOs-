@@ -1,0 +1,17 @@
+{
+    "$schema": "https://schemas.cute.engineering/stable/cutekit.manifest.component.v1",
+    "id": "hal-arm64",
+    "type": "lib",
+    "description": "Definitions for arm architecture",
+    "enableIf": {
+        "arch": [
+            "arm64"
+        ]
+    },
+    "requires": [
+        "karm-io"
+    ],
+    "provides": [
+        "hal-impl"
+    ]
+}

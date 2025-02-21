@@ -1,0 +1,47 @@
+#pragma once
+
+#include <hal/kmm.h>
+#include <karm-base/box.h>
+#include <karm-base/res.h>
+#include <karm-base/size.h>
+
+namespace Hjert::Arch {
+
+struct Frame;
+
+} // namespace Hjert::Arch
+
+namespace Hjert::Core {
+
+enum struct Mode : u8 {
+    EMBRYO, // The task is being created
+    IDLE,   // The task is only run when there is no other task to run
+    USER,   // The task is running in user mode
+    SUPER,  // The task is running in supervisor mode propably serving a syscall
+};
+
+struct Context {
+    virtual ~Context() = default;
+    virtual void save(Arch::Frame const&) = 0;
+    virtual void load(Arch::Frame&) = 0;
+};
+
+struct Stack {
+    static constexpr usize DEFAULT_SIZE = kib(64);
+
+    static Res<Stack> create();
+
+    Hal::KmmMem _mem;
+    usize _sp;
+
+    void saveSp(usize sp);
+    usize loadSp();
+    void push(Bytes bytes);
+
+    template <typename T>
+    void push(T t) {
+        push(Bytes{reinterpret_cast<u8*>(&t), sizeof(t)});
+    }
+};
+
+} // namespace Hjert::Core

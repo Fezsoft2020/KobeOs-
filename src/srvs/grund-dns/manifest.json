@@ -1,0 +1,16 @@
+{
+    "$schema": "https://schemas.cute.engineering/stable/cutekit.manifest.component.v1",
+    "id": "grund-dns",
+    "type": "exe",
+    "description": "Skift's DNS client",
+    "enableIf": {
+        "sys": [
+            "skift"
+        ]
+    },
+    "requires": [
+        "grund-base",
+        "karm-rpc",
+        "karm-sys"
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "$schema": "https://schemas.cute.engineering/stable/cutekit.manifest.component.v1",
+    "id": "impl-skift.ui",
+    "type": "lib",
+    "props": {
+        "cpp-excluded": true
+    },
+    "enableIf": {
+        "sys": [
+            "skift"
+        ]
+    },
+    "requires": [
+        "karm-rpc"
+    ],
+    "provides": [
+        "karm-ui-impl"
+    ]
+}

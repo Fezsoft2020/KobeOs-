@@ -1,0 +1,12 @@
+[book]
+authors = ["the skiftOS Develpers"]
+language = "en"
+multilingual = false
+src = "."
+title = "SkiftOS Handbook"
+
+[output.html]
+default-theme = "skift-dark"
+preferred-dark-theme = "skift-dark"
+git-repository-url = "https://github.com/skift-org/skift"
+edit-url-template = "https://github.com/skift-org/skift/edit/main/doc/{path}"

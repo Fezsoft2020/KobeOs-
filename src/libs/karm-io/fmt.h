@@ -868,5 +868,17 @@ struct Formatter<Backtrace> {
         return Ok();
     }
 };
+namespace Karm {
+namespace Io {
 
+template <>
+struct Formatter<double> {
+    void format(double value, TextWriter &writer) {
+        // Implement the formatting logic for double here
+        writer.write(std::to_string(value));
+    }
+};
+
+} // namespace Io
+} // namespace Karm
 } // namespace Karm::Io
